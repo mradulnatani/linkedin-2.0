@@ -31,12 +31,12 @@ const NavItem = ({ icon, text, path }) => {
 const Navbar = () => {
   return (
     <nav className="bg-black border-b-1 border-gray-300 h-14">
-      <div className="flex flex-row items-center gap-5">
+      <div className="flex flex-row items-center gap-1">
         <div>
-          <Link href={"/"} className="text-black text-3xl font-bold ml-40 rounded-3xl bg-blue-600 w-10 text-center absolute h-9 hover:bg-white ">
+          <Link href={"/"} className="text-black text-3xl font-bold ml-40 rounded-3xl bg-blue-600 w-10 text-center absolute h-9 hover:animate-pulse">
             in
           </Link>
-          <input type="text" placeholder="  search" className="rounded-md bg-neutral-700 h-9 items-center ml-52 w-72" />
+          <input type="text" placeholder="  search" className="rounded-md bg-neutral-700 h-9 items-center ml-52 w-96" />
         </div>
         <div className="m-auto p-auto flex items-center flex-row flex-wrap gap-11 h-14">
           {paths.map((item, index) => (
