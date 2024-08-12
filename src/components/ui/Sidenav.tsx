@@ -2,6 +2,7 @@ import React from 'react'
 import { FaBookmark, FaUserFriends, FaUsers } from 'react-icons/fa'
 
 const Sidenav = () => {
+  
   return (
     <div className="w-64 ml-40 mt-4">
       <div className='mb-2'>
