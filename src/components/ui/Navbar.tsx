@@ -2,19 +2,26 @@
 import Link from "next/link";
 import { FaHome, FaUserFriends, FaBriefcase, FaCommentDots, FaBell, FaSearch } from 'react-icons/fa';
 import { CgProfile } from 'react-icons/cg'
+import { usePathname } from "next/navigation";
 
 const paths = [
   { path: "/", label: "Home", icon: <FaHome /> },
-  { path: "/components/my-network", label: "My Network", icon: <FaUserFriends /> },
-  { path: "/components/jobs", label: "Jobs", icon: <FaBriefcase /> },
-  { path: "/components/messaging", label: "Messaging", icon: <FaCommentDots /> },
-  { path: "/components/notifications", label: "Notifications", icon: <FaBell /> },
-  { path: "/components/me", label: "Me", icon: <CgProfile /> },
+  { path: "/my-network", label: "My Network", icon: <FaUserFriends /> },
+  { path: "/jobs", label: "Jobs", icon: <FaBriefcase /> },
+  { path: "/messaging", label: "Messaging", icon: <FaCommentDots /> },
+  { path: "/notification", label: "Notifications", icon: <FaBell /> },
+  { path: "/me", label: "Me", icon: <CgProfile /> },
 ];
 
 const NavItem = ({ icon, text, path }) => {
+  const pathname = usePathname();
   return (
-    <Link href={path} className="flex flex-col items-center text-white hover:border-b-2">
+    <Link 
+      href={path} 
+      className={`flex flex-col items-center text-white hover:border-b-2 ${
+        path === pathname ? "text-blue-500" : ""
+      }`}
+    >
       <div className="text-xl">{icon}</div>
       <div className="text-xs">{text}</div>
     </Link>

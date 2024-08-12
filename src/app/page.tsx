@@ -1,8 +1,9 @@
 "use client"
-import Navbar from "../components/navbar";
 export default function HomePage() {
   return (
-<Navbar />
+    <div className="text-black">
+      Home page
+    </div>
   );
 }
 
