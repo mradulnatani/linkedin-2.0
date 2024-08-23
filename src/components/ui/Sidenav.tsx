@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaBookmark, FaUserFriends, FaUsers } from 'react-icons/fa'
-
+import { UserButton } from '@clerk/nextjs'
 const Sidenav = () => {
   
   return (
@@ -9,8 +9,8 @@ const Sidenav = () => {
         <div className='bg-black rounded-lg overflow-hidden border border-gray-300'>
           <div className='bg-cover bg-center h-16' style={{backgroundImage: "url('https://example.com/cover-image.jpg')"}}></div>
           <div className='text-center -mt-8'>
-            <img src="https://example.com/profile-image.jpg" alt="Profile" className="w-16 h-16 rounded-full mx-auto border-2 border-white" />
-            <h2 className='font-bold mt-2'>Your Name</h2>
+          <UserButton />
+          <h2 className='font-bold text-white'>Your Name</h2>
             <p className='text-sm text-gray-600'>Your Headline</p>
           </div>
           <div className='px-4 py-2'>

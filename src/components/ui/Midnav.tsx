@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaImage, FaNewspaper, FaBriefcase, FaEllipsisH } from 'react-icons/fa'
-
+import {UserButton} from '@clerk/nextjs'
 const Midnav = () => {
   return (
     <div className="flex-grow ml-1 pl-3 mt-4 mr-3">
@@ -8,7 +8,7 @@ const Midnav = () => {
         <div className='bg-black rounded-lg overflow-hidden border border-black'>
           <div className='p-4'>
             <div className='flex items-center gap-2'>
-              <div className='h-12 w-12 bg-black border border-gray-300 rounded-full'></div>
+              <div> <UserButton/></div>
               <input type='text' placeholder='Start a post' className='flex-grow rounded-full text-white bg-black border border-gray-300 px-4 py-3 hover:bg-gray-900 focus:outline-none focus:ring-1 ' />
             </div>
             <div className='flex justify-between mt-4'>
