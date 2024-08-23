@@ -1,16 +1,20 @@
 import React from 'react'
 import { FaBookmark, FaUserFriends, FaUsers } from 'react-icons/fa'
-import { UserButton } from '@clerk/nextjs'
+import { UserButton, useUser } from '@clerk/nextjs'
+
 const Sidenav = () => {
-  
+  const { user, isLoaded } = useUser();
+
   return (
     <div className="w-64 ml-40 mt-4">
       <div className='mb-2'>
         <div className='bg-black rounded-lg overflow-hidden border border-gray-300'>
           <div className='bg-cover bg-center h-16' style={{backgroundImage: "url('https://example.com/cover-image.jpg')"}}></div>
           <div className='text-center -mt-8'>
-          <UserButton />
-          <h2 className='font-bold text-white'>Your Name</h2>
+            <UserButton />
+            <h2 className='font-bold text-white'>
+              {isLoaded ? (user ? user.fullName : 'Not signed in') : 'Loading...'}
+            </h2>
             <p className='text-sm text-gray-600'>Your Headline</p>
           </div>
           <div className='px-4 py-2'>
@@ -29,21 +33,21 @@ const Sidenav = () => {
       <div className='mt-2'>
         <div className='bg-black rounded-lg overflow-hidden border border-gray-300'>
           <div className='p-4'>
-            <h3 className='font-bold mb-2'>Recent</h3>
+            <h3 className='font-bold mb-2 text-white'>Recent</h3>
             <ul className='text-sm'>
               <li className='flex items-center mb-2 text-white'><FaUsers className="mr-2 text-white" /> Group 1</li>
               <li className='flex items-center mb-2 text-white'><FaUserFriends className="mr-2 text-white" /> Event 1</li>
               <li className='flex items-center mb-2 text-white'><FaBookmark className="mr-2 text-white" /> Saved Item 1</li>
             </ul>
-            <button className='text-sm font-bold text-gray-600 mt-2'>Groups</button>
+            <button className='text-sm font-bold text-gray-400 mt-2'>Groups</button>
             <div className='flex justify-between items-center mt-2'>
-              <button className='text-sm font-bold text-gray-600'>Events</button>
+              <button className='text-sm font-bold text-gray-400'>Events</button>
               <button className='text-sm font-bold text-blue-600'>+</button>
             </div>
             <button className='text-sm font-bold text-blue-600 mt-2'>Followed Hashtags</button>
           </div>
-          <div className='bg-gray-100 p-4 text-center'>
-            <button className='text-sm font-bold text-gray-600'>Discover more</button>
+          <div className='bg-gray-800 p-4 text-center'>
+            <button className='text-sm font-bold text-gray-400'>Discover more</button>
           </div>
         </div>
       </div>

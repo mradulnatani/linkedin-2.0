@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaImage, FaNewspaper, FaBriefcase, FaEllipsisH } from 'react-icons/fa'
 import {UserButton} from '@clerk/nextjs'
+import { UploadButton } from "~/utils/uploadthing";
 const Midnav = () => {
   return (
     <div className="flex-grow ml-1 pl-3 mt-4 mr-3">
@@ -13,8 +14,18 @@ const Midnav = () => {
             </div>
             <div className='flex justify-between mt-4'>
               <button className='flex items-center justify-center text-gray-600 hover:bg-gray-900 rounded-md px-3 py-2'>
-                <FaImage className="mr-2 text-blue-500" /> 
-                <span>Photo</span>
+              <UploadButton
+        endpoint="imageUploader"
+        onClientUploadComplete={(res) => {
+          // Do something with the response
+          console.log("Files: ", res);
+          alert("Post Uploaded Successfully!");
+        }}
+        onUploadError={(error: Error) => {
+          // Do something with the error.
+          alert(`ERROR! ${error.message}`);
+        }}
+      /> 
               </button>
               <button className='flex items-center justify-center text-gray-600 hover:bg-gray-900 rounded-md px-3 py-2'>
                 <FaNewspaper className="mr-2 text-green-500" /> 
