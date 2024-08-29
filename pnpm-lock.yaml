@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@auth/drizzle-adapter':
-        specifier: ^1.1.0
+        specifier: ^1.4.2
         version: 1.4.2
       '@clerk/nextjs':
         specifier: ^5.3.3
